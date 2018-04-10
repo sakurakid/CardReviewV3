@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--复习页的头部-->
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="50dp"
+    android:padding="8dp"
+    android:background="#ffffff">
+    <!--文字-->
+    <TextView
+        android:id="@+id/review_title_name"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:layout_centerHorizontal="true"
+        android:textSize="18sp"
+        android:textColor="#222222"
+        android:layout_centerVertical="true"
+        android:text="今日复习" />
+
+    <ImageView
+        android:id="@+id/iv_review_title_game"
+        android:layout_width="25dp"
+        android:layout_height="match_parent"
+        android:layout_alignParentTop="true"
+        android:layout_marginEnd="29dp"
+        android:layout_marginRight="29dp"
+        android:layout_toLeftOf="@+id/iv_review_title_add_card"
+        android:layout_toStartOf="@+id/iv_review_title_add_card"
+        android:src="@mipmap/icon_game" />
+
+    <ImageView
+        android:id="@+id/iv_review_title_add_card"
+        android:layout_width="25dp"
+        android:layout_height="match_parent"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginEnd="13dp"
+        android:layout_marginRight="13dp"
+        android:src="@mipmap/icon_newcard" />
+
+
+</RelativeLayout>
