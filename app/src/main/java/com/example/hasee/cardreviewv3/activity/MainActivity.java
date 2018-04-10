@@ -22,7 +22,6 @@ public class MainActivity extends AppCompatActivity{
     private ArrayList<Fragment> fragmentList = new ArrayList<>();  //活动的数组
     private FragmentManager manager;
     int curFragment=-1;
-    //233
 
 
     @Override
