@@ -1,7 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#3F51B5</color>
-    <color name="colorPrimaryDark">#303F9F</color>
-    <color name="colorAccent">#FF4081</color>
     <color name="colorbar">#66FF66</color>
+    <color name="colorPrimary">#00bcd3</color>
+    <color name="colorPrimaryDark">#0097a7</color>
+    <color name="primary_light">#FFCDD2</color>
+    <color name="textPrimary">#2F3640</color>
+    <color name="colorAccent">#09c75e</color>
+    <color name="secondary_text">#727272</color>
+    <color name="divider">#FFFFFF</color>
+    <color name="text">#FFFFFF</color>
+    <color name="white">#FFFFFF</color>
+    <color name="tab_strip">#B42929</color>
+    <color name="gray_100">#FAFAFA</color>
+    <color name="light_blue_500">#03A9F4</color>
+    <color name="tintColor">#515151</color>
+    <color name="black">#000000</color>
+    <color name="blue">#2196F3</color>
+    <color name="green">#4CAF50</color>
+    <color name="yellow">#FFEB3B</color>
+    <color name="red">#F5330f</color>
+    <color name="dialogtextcolor">#666666</color>
+    <color name="titleText">#222222</color>
+    <color name="colorDefault">#ffffff</color>
+    <color name="colorBackground">#f1f0f6</color>
+    <color name="colorText">#999999</color>
+    <color name="colorHuaXian">#b2b2b2</color>
+    <color name="colorblue">#09c75e</color>
+    <color name="logopadding">#e3e3e3</color>
+    <color name="colorbagname">#444444</color>
 </resources>

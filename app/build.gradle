@@ -32,4 +32,6 @@ dependencies {
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
     //底部导航栏样式BottomNavigationBar
     compile 'com.ashokvarma.android:bottom-navigation-bar:2.0.1'
+    //RelativeLayout布局
+    compile 'com.android.support:percent:25.0.0'
 }
