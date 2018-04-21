@@ -30,11 +30,24 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     private TextView aboutUs;  //关于我们
     private ImageView QQLogin; //qq登陆
     private ImageView weChatLogin;//微信登陆
+    //倒计时的东西
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+    }
+
+    public void initView(){
+        logo = (ImageView)findViewById(R.id.logo);
+        phoneEdit = (EditText)findViewById(R.id.et_mobile);
+        codeEdit = (EditText)findViewById(R.id.et_identifyingcode);
+
+
+
+
     }
 
     @Override
