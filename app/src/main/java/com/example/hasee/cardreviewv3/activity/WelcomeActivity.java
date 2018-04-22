@@ -10,7 +10,7 @@ import android.support.v7.app.AppCompatActivity;
 import com.example.hasee.cardreviewv3.R;
 
 /**
- * 就是一个欢迎界面 每次打开app都要展示的
+ * 就是一个欢迎界面 每次打开app都要展示的啦啦啦
  */
 
 public class WelcomeActivity extends AppCompatActivity {
