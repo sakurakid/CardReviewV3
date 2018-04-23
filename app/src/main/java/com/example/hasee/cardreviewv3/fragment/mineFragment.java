@@ -12,6 +12,7 @@ import com.example.hasee.cardreviewv3.R;
 /**
  * Created by hasee on 2018/4/10.
  * 我的碎片
+ * 哇哇哇
  */
 
 public class mineFragment extends Fragment {
