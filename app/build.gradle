@@ -34,6 +34,9 @@ dependencies {
     compile 'com.ashokvarma.android:bottom-navigation-bar:2.0.1'
     //RelativeLayout布局
     compile 'com.android.support:percent:26.1.0'
+    //圆形头像的
+    compile 'com.makeramen:roundedimageview:2.2.1'
+
 }
 dependencies {
     compile 'com.google.code.gson:gson:2.3'

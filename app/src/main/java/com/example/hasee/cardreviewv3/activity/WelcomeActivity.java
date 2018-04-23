@@ -37,6 +37,7 @@ public class WelcomeActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_welcome);
+        init();
     }
 
     private void init(){
@@ -47,7 +48,7 @@ public class WelcomeActivity extends AppCompatActivity {
             editor.putBoolean("isFirstIn",false);
             handler.sendEmptyMessageDelayed(GO_GUIDE,TIME);
         }else {
-            handler.sendEmptyMessageDelayed(GO_GUIDE,TIME);
+            handler.sendEmptyMessageDelayed(GO_MAIN,TIME);
         }
         editor.commit();
     }
