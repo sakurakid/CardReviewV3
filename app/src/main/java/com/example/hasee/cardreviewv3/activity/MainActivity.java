@@ -43,10 +43,10 @@ public class MainActivity extends AppCompatActivity{
     private void initbottomView(){
         bottomNavigationBar.setMode(BottomNavigationBar.MODE_FIXED);
         bottomNavigationBar.setBackgroundStyle(BottomNavigationBar.BACKGROUND_STYLE_STATIC);
-        bottomNavigationBar.addItem(new BottomNavigationItem(R.mipmap.icon_review, "复习").setActiveColorResource(R.color.colorbar))
-                .addItem(new BottomNavigationItem(R.mipmap.icon_bag, "卡包").setActiveColorResource(R.color.colorbar))
-                .addItem(new BottomNavigationItem(R.mipmap.icon_search, "探索").setActiveColorResource(R.color.colorbar))
-                .addItem(new BottomNavigationItem(R.mipmap.icon_mine, "我的").setActiveColorResource(R.color.colorbar))
+        bottomNavigationBar.addItem(new BottomNavigationItem(R.mipmap.icon_review, "复习").setActiveColorResource(R.color.coloricon))
+                .addItem(new BottomNavigationItem(R.mipmap.icon_bag, "卡包").setActiveColorResource(R.color.coloricon))
+                .addItem(new BottomNavigationItem(R.mipmap.icon_search, "探索").setActiveColorResource(R.color.coloricon))
+                .addItem(new BottomNavigationItem(R.mipmap.icon_mine, "我的").setActiveColorResource(R.color.coloricon))
                 .setFirstSelectedPosition(0)
                 .initialise();
         bottomNavigationBar.setTabSelectedListener(new BottomNavigationBar.OnTabSelectedListener() {
