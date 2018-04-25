@@ -1,4 +1,4 @@
-package com.example.hasee.cardreviewv3.activity;
+package com.example.hasee.cardreviewv3.MineFragmentActivitise;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;

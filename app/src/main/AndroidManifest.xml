@@ -29,7 +29,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".activity.GuideActivity" />
-        <activity android:name=".activity.FeedbackActivity"></activity>
+        <activity android:name=".MineFragmentActivitise.FeedbackActivity" />
+        <activity android:name=".MineFragmentActivitise.UserActivity"></activity>
     </application>
 
 </manifest>

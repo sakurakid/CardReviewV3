@@ -17,7 +17,7 @@
             android:gravity="center"
             android:textColor="#222222"
             android:text="笑笑"
-            android:textSize="25sp"
+            android:textSize="21sp"
             android:layout_marginTop="10dp"/>
         <com.makeramen.roundedimageview.RoundedImageView
             android:id="@+id/iv_mine_photo"
@@ -72,13 +72,13 @@
                android:layout_weight="2"
                android:text="普通用户"
                android:textColor="@color/titleText"
-               android:textSize="20sp" />
+               android:textSize="16sp" />
            <ImageView
                android:src="@drawable/icon_more"
                android:layout_gravity="center_vertical"
                android:layout_weight="0.05"
-               android:layout_width="25dp"
-               android:layout_height="25dp" />
+               android:layout_width="18dp"
+               android:layout_height="18dp" />
        </LinearLayout>
        <View
            android:layout_marginLeft="20dp"
@@ -100,13 +100,13 @@
                android:layout_weight="2"
                android:text="本周任务"
                android:textColor="@color/titleText"
-               android:textSize="20sp" />
+               android:textSize="16sp" />
            <ImageView
                android:src="@drawable/icon_more"
                android:layout_gravity="center_vertical"
                android:layout_weight="0.05"
-               android:layout_width="25dp"
-               android:layout_height="25dp" />
+               android:layout_width="18dp"
+               android:layout_height="18dp" />
        </LinearLayout>
 
        <View
@@ -130,13 +130,13 @@
                android:layout_weight="2"
                android:text="记忆曲线"
                android:textColor="@color/titleText"
-               android:textSize="20sp" />
+               android:textSize="16sp" />
            <ImageView
                android:src="@drawable/icon_more"
                android:layout_gravity="center_vertical"
                android:layout_weight="0.05"
-               android:layout_width="25dp"
-               android:layout_height="25dp" />
+               android:layout_width="18dp"
+               android:layout_height="18dp" />
        </LinearLayout>
 
        <View
@@ -160,13 +160,13 @@
                android:layout_weight="2"
                android:text="游戏情况"
                android:textColor="@color/titleText"
-               android:textSize="20sp" />
+               android:textSize="16sp" />
            <ImageView
                android:src="@drawable/icon_more"
                android:layout_gravity="center_vertical"
                android:layout_weight="0.05"
-               android:layout_width="25dp"
-               android:layout_height="25dp" />
+               android:layout_width="18dp"
+               android:layout_height="18dp" />
        </LinearLayout>
        <View
            android:layout_marginLeft="20dp"
@@ -189,13 +189,13 @@
                android:layout_weight="2"
                android:text="意见反馈"
                android:textColor="@color/titleText"
-               android:textSize="20sp" />
+               android:textSize="16sp" />
            <ImageView
                android:src="@drawable/icon_more"
                android:layout_gravity="center_vertical"
                android:layout_weight="0.05"
-               android:layout_width="25dp"
-               android:layout_height="25dp" />
+               android:layout_width="18dp"
+               android:layout_height="18dp" />
        </LinearLayout>
 
    </LinearLayout>
