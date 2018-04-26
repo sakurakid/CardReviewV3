@@ -36,6 +36,9 @@ dependencies {
     compile 'com.android.support:percent:26.1.0'
     //圆形头像的
     compile 'com.makeramen:roundedimageview:2.2.1'
+    //轮播图
+    compile 'com.ryane.banner:banner-lib:0.7'
+
 
 }
 dependencies {
@@ -59,3 +62,12 @@ dependencies {
 dependencies {
     implementation 'com.android.support.constraint:constraint-layout:+'
 }
+dependencies {
+    implementation 'com.android.support.constraint:constraint-layout:+'
+}
+dependencies {
+    implementation 'com.android.support.constraint:constraint-layout:+'
+}
+
+
+

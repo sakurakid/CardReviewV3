@@ -13,6 +13,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.hasee.cardreviewv3.MineFragmentActivitise.FeedbackActivity;
+import com.example.hasee.cardreviewv3.MineFragmentActivitise.MinegameActivity;
 import com.example.hasee.cardreviewv3.MineFragmentActivitise.UserActivity;
 import com.example.hasee.cardreviewv3.R;
 
@@ -91,7 +92,7 @@ public class mineFragment extends Fragment {
         gameInformation.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getActivity(), "帅帅程序猿正在开发中", Toast.LENGTH_LONG).show();
+                startActivity(new Intent(getActivity(),MinegameActivity.class));
             }
         });
 

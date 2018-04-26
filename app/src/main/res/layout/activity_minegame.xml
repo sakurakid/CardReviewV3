@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="match_parent"
+    android:background="@color/colorBackground">
+    <include layout="@layout/mine_game_bar"/>
+
+    <LinearLayout
+        android:paddingStart="20dp"
+        android:id="@+id/ll_game_dati"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginTop="20dp"
+        android:background="@color/white"
+        android:orientation="horizontal"
+        android:clickable="true"
+        android:paddingLeft="20dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="1"
+            android:text="游戏答题"
+            android:textColor="@color/titleText"
+            android:textSize="18sp" />
+        <TextView
+            android:layout_gravity="center_vertical"
+            android:id="@+id/tv_right_num"
+            android:textSize="15sp"
+            android:textColor="@color/colorblue"
+            android:layout_width="wrap_content"
+            android:layout_height="25dp" />
+        <TextView
+            android:layout_gravity="center_vertical"
+            android:textColor="@color/colorText"
+            android:textSize="15sp"
+            android:layout_width="wrap_content"
+            android:layout_height="25dp"
+            android:id="@+id/tv_question_num"/>
+
+        <ImageView
+
+            android:layout_width="0dp"
+            android:layout_height="25dp"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="0.3"
+            android:src="@drawable/icon_more" />
+    </LinearLayout>
+
+    <View
+
+        android:layout_width="wrap_content"
+        android:layout_height="1dp"
+        android:background="@color/colorHuaXian" />
+
+    <LinearLayout
+        android:paddingStart="20dp"
+        android:id="@+id/ll_mine_score"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:clickable="true"
+        android:background="@color/white"
+        android:orientation="horizontal"
+        android:paddingLeft="20dp">
+
+        <TextView
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="1"
+            android:text="游戏积分"
+            android:textColor="@color/titleText"
+            android:textSize="18sp" />
+        <TextView
+            android:layout_gravity="center_vertical"
+            android:textColor="@color/colorText"
+            android:textSize="15sp"
+            android:layout_width="wrap_content"
+            android:layout_height="25dp"
+            android:id="@+id/tv_mine_score"/>
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="25dp"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="0.3"
+            android:src="@drawable/icon_more" />
+    </LinearLayout>
+
+</LinearLayout>
