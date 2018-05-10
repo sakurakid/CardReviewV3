@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:orientation="vertical"
     android:layout_height="match_parent">
     <!--轮播图-->
-
     <com.ryane.banner.AdPlayBanner
         android:id="@+id/iv_banner"
         android:layout_width="match_parent"
@@ -12,13 +12,83 @@
         android:filterTouchesWhenObscured="true">
     </com.ryane.banner.AdPlayBanner>
     <include
+        android:id="@+id/iv_searchexit"
         android:layout_marginTop="30dp"
         layout="@layout/search_title"
         android:layout_width="match_parent"
-        android:layout_height="40dp"
+        android:layout_height="35dp"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true" />
+        android:layout_alignParentTop="true"
+        tools:ignore="InvalidId" />
+    <ScrollView
+        android:background="@color/colorBackground"
+        android:layout_below="@+id/iv_banner"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <LinearLayout
+                android:layout_marginTop="20dp"
+                android:padding="20dp"
+                android:minHeight="150dp"
+                android:background="@color/white"
+                android:id="@+id/ll_week_hot"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"
+                    android:text="本周最热卡包"
+                    android:textColor="@color/titleText"
+                    android:textSize="18sp" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <android.support.v7.widget.RecyclerView
+                        android:id="@+id/rv_week_hot_bags"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"/>
+                </RelativeLayout>
+            </LinearLayout>
+            <LinearLayout
+                android:padding="20dp"
+                android:layout_marginTop="20dp"
+                android:background="@color/white"
+                android:minHeight="150dp"
+
+                android:id="@+id/ll_week_new"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"
+                    android:text="本周最新卡包"
+                    android:textColor="@color/titleText"
+                    android:textSize="18sp" />
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <android.support.v7.widget.RecyclerView
+                        android:id="@+id/rv_week_new_bags"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                    </android.support.v7.widget.RecyclerView>
+                </RelativeLayout>
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+    </ScrollView>
 
 
 </RelativeLayout>

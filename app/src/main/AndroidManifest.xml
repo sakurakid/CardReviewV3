@@ -32,7 +32,8 @@
         <activity android:name=".MineFragmentActivitise.FeedbackActivity" />
         <activity android:name=".MineFragmentActivitise.UserActivity" />
         <activity android:name=".MineFragmentActivitise.MinegameActivity" />
-        <activity android:name=".MineFragmentActivitise.MinescoreActivity"></activity>
+        <activity android:name=".MineFragmentActivitise.MinescoreActivity" />
+        <activity android:name=".SearchFragmentActivitise.SearchViewActivity"></activity>
     </application>
 
 </manifest>
