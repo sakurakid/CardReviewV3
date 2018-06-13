@@ -34,7 +34,8 @@
         <activity android:name=".MineFragmentActivitise.MinegameActivity" />
         <activity android:name=".MineFragmentActivitise.MinescoreActivity" />
         <activity android:name=".SearchFragmentActivitise.SearchViewActivity" />
-        <activity android:name=".ReviewFragmentActivitise.AddCard"></activity>
+        <activity android:name=".ReviewFragmentActivitise.AddCard" />
+
     </application>
 
 </manifest>
