@@ -9,20 +9,14 @@ import android.widget.Button;
 import android.widget.ImageView;
 
 import com.example.hasee.cardreviewv3.R;
+import com.example.hasee.cardreviewv3.viewBase.MyDialog;
 
-public class AddCard extends AppCompatActivity implements View.OnClickListener{
+public class AddCard extends AppCompatActivity implements View.OnClickListener,MyDialog.OnCenterItemClickListener{
     private ImageView back;
-    private Button choosebag;//
-//    public String[] groupString = {"人文社科", "自然科学", "计算机科学", "其他"};
-//    public String[][] childString = {
-//            {"语文", "哲学", "心理学", "英语"},
-//            {"物理", "化学", "数学"},
-//            {"语言学习", "开发模式", "移动开发", "后端学习", "考试认证"},
-//            {"其他", "心情"}
-//
-//    };
-//    private MyDialog myDialog;
-//    ExpandableListView expandableListView;
+    private ImageView ok;//完成
+    private Button choosebag;//选择卡包的按钮
+    private MyDialog dialog;//选择卡片dialog
+    private Button choosecardkind;//选择卡片类型的按钮
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,110 +30,70 @@ public class AddCard extends AppCompatActivity implements View.OnClickListener{
 
     private void init() {
         choosebag = (Button) findViewById(R.id.btn_choosebag);
-        back = (ImageView)findViewById(R.id.iv_back);
+        back = (ImageView)findViewById(R.id.iv_back1);
+        ok = (ImageView)findViewById(R.id.iv_save);
+        choosecardkind = (Button)findViewById(R.id.btn_choosecardkind);
         choosebag.setOnClickListener(this);
-//        myDialog = new MyDialog(this,R.layout.dialog_choosbag,
-//                new int[]{R.id.elv_cardkind});
-//        myDialog.setOnCenterItemClickListener((MyDialog.OnCenterItemClickListener) this);
-//        final ExpandableListView expandableListView = myDialog.findViewById(R.id.elv_cardkind);
+        choosecardkind.setOnClickListener(this);
+        dialog = new MyDialog(this,R.layout.dialog_cardkind,new int[]{R.id.dia_common,R.id.dia_choice,R.id.dia_pack});
+        dialog.setOnCenterItemClickListener((MyDialog.OnCenterItemClickListener) this);
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
+        ok.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //完成的
+            }
+        });
     }
 
     @Override
     public void onClick(View v) {
         Log.e("233","11111");
         switch (v.getId()) {
-            case R.id.iv_back:
+            case R.id.iv_back1:
                 finish();
                 break;
             case R.id.btn_choosebag:
                 Log.d("244","221");
                 startActivity(new Intent(AddCard.this,DialogchoosebagActivity.class));
                 break;
+            case R.id.btn_choosecardkind:
+                dialog.show();
+                break;
+
+
 
         }
     }
 
-//    /**
-//     * 点击选择卡包
-//     */
-//    private void Coosebag() {
-//        MyDialog myDialog = new MyDialog(getBaseContext());
-//        myDialog.setContentView(R.layout.dialog_choosbag);
-//        Log.d("244","222");
-//        final ExpandableListView expandableListView = myDialog.findViewById(R.id.elv_cardkind);
-//        //设置分组的监听
-//        expandableListView.setOnGroupClickListener(new ExpandableListView.OnGroupClickListener() {
-//            @Override
-//            public boolean onGroupClick(ExpandableListView parent, View v, int groupPosition, long id) {
-//                Toast.makeText(getApplicationContext(), groupString[groupPosition], Toast.LENGTH_SHORT).show();
-//                return false;
-//            }
-//        });
-//        //设置子项布局监听
-//        expandableListView.setOnChildClickListener(new ExpandableListView.OnChildClickListener() {
-//            @Override
-//            public boolean onChildClick(ExpandableListView parent, View v, int groupPosition, int childPosition, long id) {
-//                Toast.makeText(getApplicationContext(), childString[groupPosition][childPosition], Toast.LENGTH_SHORT).show();
-//                return true;
-//
-//            }
-//        });
-//        //控制他只能打开一个组
-//        expandableListView.setOnGroupExpandListener(new ExpandableListView.OnGroupExpandListener() {
-//            @Override
-//            public void onGroupExpand(int groupPosition) {
-//                int count = new MyExtendableListViewAdapter().getGroupCount();
-//                for (int i = 0; i < count; i++) {
-//                    if (i != groupPosition) {
-//                        expandableListView.collapseGroup(i);
-//                    }
-//                }
-//            }
-//        });
-//        Log.d("244","333");
-//        myDialog.show();
-//        Log.d("244","666");
-//    }
+    /**
+     * 选择不同的卡片类型
+     * @param dialog
+     * @param view
+     */
+    @Override
+    public void OnCenterItemClick(MyDialog dialog, View view) {
+        switch (view.getId()){
+            case R.id.dia_common://普通卡片类型
+                choosecardkind.setText("普通卡片");
+                break;
+            case R.id.dia_pack:
+                //填空卡片
+                choosecardkind.setText("填空卡片");
+                break;
+            case R.id.dia_choice:
+                //选择卡片
+                choosecardkind.setText("选择卡片");
+                break;
 
-//    @Override
-//    public void OnCenterItemClick(MyDialog dialog, View view) {
-//        switch (view.getId()){
-//            case R.id.elv_cardkind:
-//                expandableListView.setAdapter(new MyExtendableListViewAdapter());
-//                //设置分组的监听
-//                expandableListView.setOnGroupClickListener(new ExpandableListView.OnGroupClickListener() {
-//                    @Override
-//                    public boolean onGroupClick(ExpandableListView parent, View v, int groupPosition, long id) {
-//                        Toast.makeText(getApplicationContext(), groupString[groupPosition], Toast.LENGTH_SHORT).show();
-//                        return false;
-//                    }
-//                });
-//                //设置子项布局监听
-//                expandableListView.setOnChildClickListener(new ExpandableListView.OnChildClickListener() {
-//                    @Override
-//                    public boolean onChildClick(ExpandableListView parent, View v, int groupPosition, int childPosition, long id) {
-//                        Toast.makeText(getApplicationContext(), childString[groupPosition][childPosition], Toast.LENGTH_SHORT).show();
-//                        return true;
-//
-//                    }
-//                });
-//                //控制他只能打开一个组
-//                expandableListView.setOnGroupExpandListener(new ExpandableListView.OnGroupExpandListener() {
-//                    @Override
-//                    public void onGroupExpand(int groupPosition) {
-//                        int count = new MyExtendableListViewAdapter().getGroupCount();
-//                        for (int i = 0; i < count; i++) {
-//                            if (i != groupPosition) {
-//                                expandableListView.collapseGroup(i);
-//                            }
-//                        }
-//                    }
-//                });
-//                default:
-//                    break;
-//        }
+        }
 
-
+    }
 }
 
 

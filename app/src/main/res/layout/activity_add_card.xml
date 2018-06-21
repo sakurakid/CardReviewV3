@@ -52,13 +52,15 @@
                 android:layout_weight="0.6"
                 android:gravity="center|start"
                 android:text="卡片类型" />
-            <com.example.hasee.cardreviewv3.viewBase.ClickControlledSpinner
-                android:spinnerMode="dialog"
-                android:id="@+id/s_card_kind"
-                android:layout_weight="0.4"
-                android:layout_height="match_parent"
+            <Button
+                android:id="@+id/btn_choosecardkind"
                 android:layout_width="0dp"
-                android:gravity="center|end"/>
+                android:layout_height="match_parent"
+                android:layout_weight="0.4"
+                android:gravity="center"
+                android:background="@color/colorBackground"
+                android:hint="选择卡片"/>
+
         </LinearLayout>
 
 

@@ -7,7 +7,7 @@
     android:layout_width="match_parent"
     android:layout_height="50dp">
     <ImageView
-        android:id="@+id/iv_back"
+        android:id="@+id/iv_back1"
         android:layout_width="25dp"
         android:layout_height="25dp"
         android:layout_centerVertical="true"
@@ -15,7 +15,7 @@
     <TextView
         android:textColor="@color/tintColor"
         android:textSize="18sp"
-        android:text="添加卡包"
+        android:text="添加卡片"
         android:gravity="center"
         android:layout_toRightOf="@id/iv_back"
         android:layout_toLeftOf="@id/iv_save"
