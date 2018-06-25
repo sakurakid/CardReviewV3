@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--普通的卡片录入-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:id="@+id/ll_commomcard"
+    android:background="@color/colorBackground">
+    <LinearLayout
+        android:id="@+id/ll_commomcard_just"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:orientation="vertical"
+        android:background="@color/white"
+        android:padding="10dp">
+        <TextView
+            android:layout_marginTop="20dp"
+            android:layout_width="80dp"
+            android:layout_height="30dp"
+            android:text="卡片正面"
+            android:textColor="#444444"
+            android:textSize="20dp"/>
+        <ImageView
+            android:layout_marginTop="8dp"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:src="@drawable/icon_edit"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_marginTop="28dp"
+        android:id="@+id/ll_commomcard_back"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:orientation="vertical"
+        android:background="@color/white"
+        android:padding="10dp">
+        <TextView
+            android:layout_marginTop="20dp"
+            android:layout_width="80dp"
+            android:layout_height="30dp"
+            android:text="卡片背面"
+            android:textColor="#444444"
+            android:textSize="20dp"/>
+        <ImageView
+            android:layout_marginTop="8dp"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:src="@drawable/icon_edit"/>
+    </LinearLayout>
+
+</LinearLayout>

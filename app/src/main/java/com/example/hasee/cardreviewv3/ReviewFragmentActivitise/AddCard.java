@@ -4,9 +4,11 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 
 import com.example.hasee.cardreviewv3.R;
 import com.example.hasee.cardreviewv3.viewBase.MyDialog;
@@ -17,6 +19,8 @@ public class AddCard extends AppCompatActivity implements View.OnClickListener,M
     private Button choosebag;//选择卡包的按钮
     private MyDialog dialog;//选择卡片dialog
     private Button choosecardkind;//选择卡片类型的按钮
+    private LinearLayout linearLayout;//动态加载的布局
+    private LayoutInflater inflater;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +39,8 @@ public class AddCard extends AppCompatActivity implements View.OnClickListener,M
         choosecardkind = (Button)findViewById(R.id.btn_choosecardkind);
         choosebag.setOnClickListener(this);
         choosecardkind.setOnClickListener(this);
+        inflater = LayoutInflater.from(this);
+        linearLayout = (LinearLayout) findViewById(R.id.ll_addView);
         dialog = new MyDialog(this,R.layout.dialog_cardkind,new int[]{R.id.dia_common,R.id.dia_choice,R.id.dia_pack});
         dialog.setOnCenterItemClickListener((MyDialog.OnCenterItemClickListener) this);
         back.setOnClickListener(new View.OnClickListener() {
@@ -81,6 +87,8 @@ public class AddCard extends AppCompatActivity implements View.OnClickListener,M
         switch (view.getId()){
             case R.id.dia_common://普通卡片类型
                 choosecardkind.setText("普通卡片");
+                LinearLayout linearLayout2 = (LinearLayout)inflater.inflate(R.layout.item_commomcard,null);
+                linearLayout.addView(linearLayout2);
                 break;
             case R.id.dia_pack:
                 //填空卡片
