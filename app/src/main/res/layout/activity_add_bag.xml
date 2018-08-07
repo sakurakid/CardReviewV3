@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <!--头部-->
+    <include layout="@layout/add_bag_bar"/>
+
+    <!--主体部分-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorBackground"
+        android:orientation="vertical"
+        android:layout_marginTop="15dp">
+
+        <LinearLayout
+            android:id="@+id/ll_bag_name"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:padding="15dp"
+            android:background="@color/white"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:text="卡包名字"
+                android:textSize="18sp"
+                android:textColor="@color/titleText"
+                android:layout_weight="1"/>
+            <EditText
+                android:paddingTop="15dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="10"
+                android:hint="请输入卡包名称"/>
+        </LinearLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#dcdcdc"/>
+
+        <LinearLayout
+            android:id="@+id/ll_bag_imag"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:padding="15dp"
+            android:background="@color/white"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:text="卡包封面"
+                android:textSize="18sp"
+                android:textColor="@color/titleText"
+                android:layout_weight="1"/>
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="10"
+                android:hint="请输入卡包名称"/>
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+
+
+</LinearLayout>

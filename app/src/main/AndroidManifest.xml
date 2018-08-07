@@ -35,8 +35,10 @@
         <activity android:name=".MineFragmentActivitise.MinescoreActivity" />
         <activity android:name=".SearchFragmentActivitise.SearchViewActivity" />
         <activity android:name=".ReviewFragmentActivitise.AddCard" />
-        <activity android:name=".ReviewFragmentActivitise.DialogchoosebagActivity"
-            android:theme="@style/dialogTheme"></activity>
+        <activity
+            android:name=".ReviewFragmentActivitise.DialogchoosebagActivity"
+            android:theme="@style/dialogTheme" />
+        <activity android:name=".BagFragmentActivitise.AddBag"></activity>
     </application>
 
 </manifest>
