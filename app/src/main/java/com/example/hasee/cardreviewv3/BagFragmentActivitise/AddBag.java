@@ -7,6 +7,7 @@ import com.example.hasee.cardreviewv3.R;
 
 public class AddBag extends AppCompatActivity {
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
