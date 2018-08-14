@@ -38,7 +38,8 @@
         <activity
             android:name=".ReviewFragmentActivitise.DialogchoosebagActivity"
             android:theme="@style/dialogTheme" />
-        <activity android:name=".BagFragmentActivitise.AddBag"></activity>
+        <activity android:name=".BagFragmentActivitise.AddBag" />
+        <activity android:name=".activity.Register"></activity>
     </application>
 
 </manifest>
