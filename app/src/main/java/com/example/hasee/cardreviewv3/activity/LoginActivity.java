@@ -24,7 +24,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     private Scroller body;
     private EditText phoneEdit; //电话号码的
     private EditText codeEdit;//验证码输入
-    private Button getidentifyingcode;//获取验证码
+    private Button register;//注册账号的
     private Button login;//登陆的
     private ImageView cleanPhone;    //清除电话号码
     private ImageView cleanCode;  //清除验证码
@@ -47,21 +47,28 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     public void initView(){
         logo = (ImageView)findViewById(R.id.logo);
         phoneEdit = (EditText)findViewById(R.id.et_mobile);
-        codeEdit = (EditText)findViewById(R.id.et_identifyingcode);
-        getidentifyingcode = (Button)findViewById(R.id.get_identifyingcode);
+        codeEdit = (EditText)findViewById(R.id.et_keypasscode);
+        register = (Button)findViewById(R.id.btn_gotoregister);
         login = (Button)findViewById(R.id.btn_login);
 
 
 
         login.setOnClickListener(this);
+        register.setOnClickListener(this);
     }
 
     @Override
     public void onClick(View v) {
         switch (v.getId()){
+            //登陆的
             case R.id.btn_login:
-                Intent intent = new Intent(LoginActivity.this,Register.class);
+                Intent intent = new Intent(LoginActivity.this,MainActivity.class);
                 startActivity(intent);
+                break;
+                //注册的
+            case R.id.btn_gotoregister:
+                Intent intent1 = new Intent(LoginActivity.this,Register.class);
+                startActivity(intent1);
                 break;
         }
 

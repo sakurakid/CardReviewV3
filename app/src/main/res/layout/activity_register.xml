@@ -44,6 +44,7 @@
                 android:layout_height="50dp"
                 android:orientation="horizontal">
                 <EditText
+                    android:id="@+id/et_phone"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:background="@null"
@@ -67,6 +68,7 @@
                 android:layout_height="50dp"
                 android:orientation="horizontal">
                 <EditText
+                    android:id="@+id/et_code"
                     android:layout_width="230dp"
                     android:layout_height="match_parent"
                     android:background="@null"
@@ -91,11 +93,12 @@
                 android:background="@color/colorHuaXian"/>
             <!--输入密码-->
             <LinearLayout
-                android:id="@+id/register_passord_old"
+                android:id="@+id/register_password_old"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:orientation="horizontal">
                 <EditText
+                    android:id="@+id/et_password_old"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:background="@null"
@@ -112,11 +115,12 @@
                 android:background="@color/colorHuaXian"/>
             <!--输入密码-->
             <LinearLayout
-                android:id="@+id/register_passord_new"
+                android:id="@+id/register_password_new"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:orientation="horizontal">
                 <EditText
+                    android:id="@+id/et_password_new"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:background="@null"
