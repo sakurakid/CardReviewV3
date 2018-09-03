@@ -26,7 +26,7 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     //noinspection GradleCompatible
     implementation 'com.android.support:appcompat-v7:26.1.0'
-    implementation 'com.android.support.constraint:constraint-layout:1.1.0'
+    implementation 'com.android.support.constraint:constraint-layout:1.1.2'
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
@@ -35,63 +35,13 @@ dependencies {
     //RelativeLayout布局
     compile 'com.android.support:percent:26.1.0'
     //圆形头像的
-    compile 'com.makeramen:roundedimageview:2.2.1'
+    compile 'com.makeramen:roundedimageview:2.3.0'
     //轮播图
     compile 'com.ryane.banner:banner-lib:0.7'
     //历史搜索框
     compile 'com.carson_ho:SearchLayout:1.0.1'
     //okhttp的
-    compile 'com.squareup.okhttp3:okhttp:3.4.1'
+    compile 'com.squareup.okhttp3:okhttp:3.9.1'
 
 
-}
-dependencies {
-    compile 'com.google.code.gson:gson:2.3'
-    compile 'com.squareup.retrofit:retrofit:2.0.0-beta1'
-    compile 'com.squareup.retrofit:converter-gson:2.0.0-beta2'
-    compile 'com.squareup.okhttp:okhttp:2.4.0'
-}
-dependencies {
-    implementation 'com.android.support.constraint:constraint-layout:+'
-}
-dependencies {
-    implementation 'com.android.support.constraint:constraint-layout:+'
-}
-dependencies {
-    implementation 'com.android.support.constraint:constraint-layout:+'
-}
-dependencies {
-    implementation 'com.android.support.constraint:constraint-layout:+'
-}
-dependencies {
-    implementation 'com.android.support.constraint:constraint-layout:+'
-}
-dependencies {
-    implementation 'com.android.support.constraint:constraint-layout:+'
-}
-dependencies {
-    implementation 'com.android.support.constraint:constraint-layout:+'
-}
-dependencies {
-    implementation 'com.android.support.constraint:constraint-layout:+'
-}
-
-dependencies {
-    implementation 'com.android.support.constraint:constraint-layout:+'
-}
-
-dependencies {
-    implementation 'com.android.support.constraint:constraint-layout:+'
-}
-
-dependencies {
-    implementation 'com.android.support.constraint:constraint-layout:+'
-}
-
-dependencies {
-    implementation 'com.android.support.constraint:constraint-layout:+'
-}
-
-dependencies {
-    implementation 'com.android.support.constraint:constraint-layout:+'
 }

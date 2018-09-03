@@ -7,14 +7,12 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Toast;
 
 import com.example.hasee.cardreviewv3.R;
 
 import java.io.IOException;
 
 import okhttp3.Call;
-import okhttp3.Callback;
 import okhttp3.FormBody;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
@@ -38,7 +36,6 @@ public class Register extends AppCompatActivity implements View.OnClickListener 
     public String code;//验证码
 
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,14 +43,14 @@ public class Register extends AppCompatActivity implements View.OnClickListener 
         initView();
     }
 
-    public void initView(){
-        register = (Button)findViewById(R.id.btn_register);
-        getCode = (Button)findViewById(R.id.get_identifyingcode);
+    public void initView() {
+        register = (Button) findViewById(R.id.btn_register);
+        getCode = (Button) findViewById(R.id.get_identifyingcode);
 
-        et_phone = (EditText)findViewById(R.id.et_phone);
-        et_password_old = (EditText)findViewById(R.id.et_password_old);
-        et_password_new = (EditText)findViewById(R.id.et_password_new);
-        et_code = (EditText)findViewById(R.id.et_code);
+        et_phone = (EditText) findViewById(R.id.et_phone);
+        et_password_old = (EditText) findViewById(R.id.et_password_old);
+        et_password_new = (EditText) findViewById(R.id.et_password_new);
+        et_code = (EditText) findViewById(R.id.et_code);
 
 
         register.setOnClickListener(this);
@@ -62,9 +59,10 @@ public class Register extends AppCompatActivity implements View.OnClickListener 
 
     @Override
     public void onClick(View v) {
-        switch (v.getId()){
+        switch (v.getId()) {
             case R.id.btn_register:
-                Intent intent = new Intent(Register.this,LoginActivity.class);
+                register();
+                Intent intent = new Intent(Register.this, LoginActivity.class);
                 startActivity(intent);
                 break;
             case R.id.get_identifyingcode:
@@ -77,38 +75,72 @@ public class Register extends AppCompatActivity implements View.OnClickListener 
     /**
      * 获取验证码的
      */
-    private void getcode(){
-        iphoneNumber = et_phone.getText().toString();
-        OkHttpClient client = new OkHttpClient();
-        RequestBody requestBody = new FormBody.Builder()
-                .add("mobile",iphoneNumber)
-                .build();
-        Request request = new Request.Builder()
-                .url("http://diamond.creatshare.com/user/getcode")
-                .post(requestBody)
-                .build();
-        client.newCall(request).enqueue(new Callback() {
+    private void getcode() {
+        new Thread(new Runnable() {
             @Override
-            public void onFailure(Call call, IOException e) {
-                Toast.makeText(Register.this,"获取验证码失败",Toast.LENGTH_SHORT).show();
+            public void run() {
+                iphoneNumber = et_phone.getText().toString();
+                OkHttpClient client = new OkHttpClient();
+                RequestBody requestBody = new FormBody.Builder()
+                        .add("mobile", iphoneNumber)
+                        .build();
+                Request request = new Request.Builder()
+                        .url("http://diamond.creatshare.com/user/getcode")
+                        .post(requestBody)
+                        .build();
 
 
+                Call call = client.newCall(request);
+                try {
+                    Response response = call.execute();
+                    Log.d("233", response.body().string());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
             }
 
-            @Override
-            public void onResponse(Call call, Response response) throws IOException {
-                Log.d("233",response.toString());
-                Toast.makeText(Register.this,"获取验证码",Toast.LENGTH_SHORT).show();
+        }).start();
 
-            }
-        });
 
     }
+
 
     /**
      * 注册
      */
-    private void register(){
+    private void register() {
+        password_older = et_password_old.getText().toString();
+        password_new = et_password_new.getText().toString();
+        code = et_code.getText().toString();
 
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                OkHttpClient client = new OkHttpClient();
+
+                RequestBody requestBody = new FormBody.Builder()
+                        .add("mobile", iphoneNumber)
+                        .add("code", code)
+                        .add("password", password_older)
+                        .add("passwordConfirm", password_new)
+                        .build();
+                Request request = new Request.Builder()
+                        .url("http://diamond.creatshare.com/user/getcode")
+                        .post(requestBody)
+                        .build();
+
+                Call call = client.newCall(request);
+                try {
+                    Response response = call.execute();
+                    Log.d("233", response.body().string());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+
+        }).start();
     }
 }
+
+
+

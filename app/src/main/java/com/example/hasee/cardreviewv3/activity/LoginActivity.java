@@ -3,6 +3,7 @@ package com.example.hasee.cardreviewv3.activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -11,6 +12,15 @@ import android.widget.Scroller;
 import android.widget.TextView;
 
 import com.example.hasee.cardreviewv3.R;
+
+import java.io.IOException;
+
+import okhttp3.Call;
+import okhttp3.FormBody;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.RequestBody;
+import okhttp3.Response;
 
 /**
  * 登陆主活动
@@ -33,6 +43,9 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     private ImageView QQLogin; //qq登陆
     private ImageView weChatLogin;//微信登陆
     //倒计时的东西
+
+    public String phone;
+    public String password;
 
 
 
@@ -62,6 +75,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         switch (v.getId()){
             //登陆的
             case R.id.btn_login:
+                login();
                 Intent intent = new Intent(LoginActivity.this,MainActivity.class);
                 startActivity(intent);
                 break;
@@ -72,5 +86,38 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 break;
         }
 
+    }
+
+    /**
+     * 登陆的
+     */
+    private void login(){
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                phone = phoneEdit.getText().toString();
+                password = codeEdit.getText().toString();
+
+
+                OkHttpClient client = new OkHttpClient();
+                RequestBody requestBody = new FormBody.Builder()
+                        .add("mobile", phone)
+                        .add("password",password)
+                        .build();
+                Request request = new Request.Builder()
+                        .url("http://diamond.creatshare.com/user/login")
+                        .post(requestBody)
+                        .build();
+
+
+                Call call = client.newCall(request);
+                try {
+                    Response response = call.execute();
+                    Log.d("233", "1          "+response.body().string());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }).start();
     }
 }
