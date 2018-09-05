@@ -11,9 +11,11 @@ import android.widget.EditText;
 import com.example.hasee.cardreviewv3.R;
 
 import java.io.IOException;
+import java.util.List;
 
 import okhttp3.Call;
 import okhttp3.FormBody;
+import okhttp3.Headers;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.RequestBody;
@@ -34,6 +36,7 @@ public class Register extends AppCompatActivity implements View.OnClickListener 
     public String password_older;//密码旧
     public String password_new;//密码新
     public String code;//验证码
+    public String s; //Session
 
 
     @Override
@@ -94,12 +97,22 @@ public class Register extends AppCompatActivity implements View.OnClickListener 
                 try {
                     Response response = call.execute();
                     Log.d("233", response.body().string());
+
+                    //获取Session操作
+                    Headers headers = response.headers();
+                    Log.d("233","header " + headers);
+                    List<String> cookies = headers.values("Set-Cookie");
+                    String session = cookies.get(0);
+                    s = session.substring(0,session.indexOf(";"));
+
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
             }
 
         }).start();
+
+
 
 
     }
@@ -113,6 +126,12 @@ public class Register extends AppCompatActivity implements View.OnClickListener 
         password_new = et_password_new.getText().toString();
         code = et_code.getText().toString();
 
+        Log.d("233","Session "+s);
+        Log.d("233","2 "+iphoneNumber);
+        Log.d("233","2 "+password_older);
+        Log.d("233","2 "+password_new);
+        Log.d("233","2 "+code);
+
         new Thread(new Runnable() {
             @Override
             public void run() {
@@ -125,8 +144,9 @@ public class Register extends AppCompatActivity implements View.OnClickListener 
                         .add("passwordConfirm", password_new)
                         .build();
                 Request request = new Request.Builder()
-                        .url("http://diamond.creatshare.com/user/getcode")
+                        .url("http://diamond.creatshare.com/user/register")
                         .post(requestBody)
+                        .addHeader("cookie",s)
                         .build();
 
                 Call call = client.newCall(request);

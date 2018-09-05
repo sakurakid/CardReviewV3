@@ -41,7 +41,7 @@
             <LinearLayout
                 android:id="@+id/login_phone"
                 app:layout_heightPercent="10%"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center_vertical"
                 android:orientation="horizontal"
@@ -52,24 +52,15 @@
 
                 <EditText
                     android:id="@+id/et_mobile"
-                    android:layout_width="0dp"
+                    android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_weight="1"
                     android:background="@null"
                     android:hint = "手机号"
                     android:inputType="phone"
                     android:maxLength="11"
-                    android:text=""
                     android:textColor="@color/colorText"
                     android:textColorHint="@color/colorText"
                     android:textSize="14sp" />
-                <ImageView
-                    android:id="@+id/ib_clea"
-                    android:layout_width="40dp"
-                    android:layout_height="match_parent"
-                    android:scaleType="centerInside"
-                    android:src="@mipmap/clean"
-                    android:visibility="gone"/>
             </LinearLayout>
             <View
                 android:layout_below="@+id/login_phone"

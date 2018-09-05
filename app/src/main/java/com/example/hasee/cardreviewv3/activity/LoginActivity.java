@@ -98,6 +98,9 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 phone = phoneEdit.getText().toString();
                 password = codeEdit.getText().toString();
 
+                Log.d("233","1"+phone);
+                Log.d("233","1"+password);
+
 
                 OkHttpClient client = new OkHttpClient();
                 RequestBody requestBody = new FormBody.Builder()
@@ -113,7 +116,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 Call call = client.newCall(request);
                 try {
                     Response response = call.execute();
-                    Log.d("233", "1          "+response.body().string());
+                    Log.d("233", "1 "+response.body().string());
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
@@ -121,3 +124,4 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         }).start();
     }
 }
+
