@@ -3,6 +3,14 @@
     package="com.example.hasee.cardreviewv3">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    //储存卡的读取权限
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    //调用相机权限
+    <uses-permission android:name="android.permission.CAMERA" />
+
+
+
+
 
     <application
         android:allowBackup="true"
@@ -40,6 +48,22 @@
             android:theme="@style/dialogTheme" />
         <activity android:name=".BagFragmentActivitise.AddBag" />
         <activity android:name=".activity.Register"></activity>
+
+        <provider
+            android:name="android.support.v4.content.FileProvider"
+            android:authorities="com.example.hasee.cardreviewv3.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths">
+            </meta-data>
+        </provider>
+
+
+
+
+
     </application>
 
 </manifest>

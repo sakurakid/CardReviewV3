@@ -26,7 +26,7 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     //noinspection GradleCompatible
     implementation 'com.android.support:appcompat-v7:26.1.0'
-    implementation 'com.android.support.constraint:constraint-layout:1.1.2'
+    implementation 'com.android.support.constraint:constraint-layout:1.1.3'
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
@@ -42,6 +42,16 @@ dependencies {
     compile 'com.carson_ho:SearchLayout:1.0.1'
     //okhttp的
     compile 'com.squareup.okhttp3:okhttp:3.9.1'
+    //图片相册选择
+    compile 'com.zhihu.android:matisse:0.4.3'
+
+    implementation 'com.android.support:appcompat-v7:26.1.0'
+    implementation 'com.android.support:recyclerview-v7:26.1.0'
+    implementation 'com.github.bumptech.glide:glide:3.7.0'
+
+
+
+
 
 
 }

@@ -100,10 +100,14 @@ public class Register extends AppCompatActivity implements View.OnClickListener 
 
                     //获取Session操作
                     Headers headers = response.headers();
-                    Log.d("233","header " + headers);
+                    Log.d("233", "header " + headers);
                     List<String> cookies = headers.values("Set-Cookie");
                     String session = cookies.get(0);
-                    s = session.substring(0,session.indexOf(";"));
+                    s = session.substring(0, session.indexOf(";"));
+
+                    //获取请求返回的值
+//                    String returncode = parseJSON(response.body().string());
+//                    Log.d("233", "returncode  " + returncode);
 
                 } catch (IOException e) {
                     e.printStackTrace();
@@ -111,8 +115,6 @@ public class Register extends AppCompatActivity implements View.OnClickListener 
             }
 
         }).start();
-
-
 
 
     }
@@ -126,11 +128,11 @@ public class Register extends AppCompatActivity implements View.OnClickListener 
         password_new = et_password_new.getText().toString();
         code = et_code.getText().toString();
 
-        Log.d("233","Session "+s);
-        Log.d("233","2 "+iphoneNumber);
-        Log.d("233","2 "+password_older);
-        Log.d("233","2 "+password_new);
-        Log.d("233","2 "+code);
+        Log.d("233", "Session " + s);
+        Log.d("233", "2 " + iphoneNumber);
+        Log.d("233", "2 " + password_older);
+        Log.d("233", "2 " + password_new);
+        Log.d("233", "2 " + code);
 
         new Thread(new Runnable() {
             @Override
@@ -146,7 +148,7 @@ public class Register extends AppCompatActivity implements View.OnClickListener 
                 Request request = new Request.Builder()
                         .url("http://diamond.creatshare.com/user/register")
                         .post(requestBody)
-                        .addHeader("cookie",s)
+                        .addHeader("cookie", s)
                         .build();
 
                 Call call = client.newCall(request);
@@ -160,6 +162,29 @@ public class Register extends AppCompatActivity implements View.OnClickListener 
 
         }).start();
     }
+
+//    /**
+//     * 解析返回返回值
+//     *
+//     * @param jsonData
+//     */
+//    public String parseJSON(String jsonData) {
+//        String codes = null;
+//        try {
+//            JSONObject jsonObject = new JSONObject(jsonData);
+//            codes = jsonObject.getString("code");
+//
+//
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
+//.
+//        return codes;
+//    }
+
+
+
+
 }
 
 
