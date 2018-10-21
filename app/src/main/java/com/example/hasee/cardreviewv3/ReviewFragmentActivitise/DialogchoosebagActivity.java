@@ -1,6 +1,7 @@
 package com.example.hasee.cardreviewv3.ReviewFragmentActivitise;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -19,6 +20,7 @@ import static com.example.hasee.cardreviewv3.R.layout;
  */
 public class DialogchoosebagActivity extends Activity {
     private ExpandableListView expandableListView;
+    private String re;
 
     public String[] groupString = {"人文社科", "自然科学", "计算机科学", "其他"};
     public String[][] childString = {
@@ -45,6 +47,8 @@ public class DialogchoosebagActivity extends Activity {
                 return false;
             }
         });
+
+
         //设置子项布局监听
         expandableListView.setOnChildClickListener(new ExpandableListView.OnChildClickListener() {
             @Override
@@ -56,6 +60,11 @@ public class DialogchoosebagActivity extends Activity {
 
                 String s = childString[groupPosition][childPosition];
                 b.setText(s);
+                //获取点击的类型
+                re = s;
+                Intent intent = new Intent();
+                intent.putExtra("kind_return",re);
+                setResult(RESULT_OK,intent);
                 Toast.makeText(getApplicationContext(), childString[groupPosition][childPosition], Toast.LENGTH_SHORT).show();
                 return true;
 
@@ -73,6 +82,16 @@ public class DialogchoosebagActivity extends Activity {
                 }
             }
         });
+    }
+
+
+
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent();
+        intent.putExtra("kind_return",re);
+        setResult(RESULT_OK,intent);
+        finish();
     }
 }
 

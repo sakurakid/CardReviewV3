@@ -10,54 +10,58 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_marginTop="15dp"
         android:background="@color/colorBackground"
-        android:orientation="vertical"
-        android:layout_marginTop="15dp">
+        android:orientation="vertical">
 
         <LinearLayout
             android:id="@+id/ll_bag_name"
             android:layout_width="match_parent"
             android:layout_height="60dp"
-            android:padding="15dp"
             android:background="@color/white"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:padding="15dp">
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
+                android:layout_weight="1"
                 android:text="卡包名字"
-                android:textSize="16sp"
                 android:textColor="@color/titleText"
-                android:layout_weight="1"/>
+                android:textSize="16sp" />
+
             <EditText
                 android:id="@+id/et_bah_name"
-                android:paddingTop="3dp"
                 android:layout_width="wrap_content"
                 android:layout_height="40dp"
                 android:layout_weight="10"
                 android:hint="请输入卡包名称"
-                android:textSize="15sp"/>
+                android:paddingTop="3dp"
+                android:textSize="15sp" />
         </LinearLayout>
+
         <View
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:background="#dcdcdc"/>
+            android:background="#dcdcdc" />
 
         <LinearLayout
             android:id="@+id/ll_bag_imag"
             android:layout_width="match_parent"
             android:layout_height="60dp"
-            android:padding="15dp"
             android:background="@color/white"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:padding="15dp">
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
+                android:layout_weight="0.01"
                 android:text="卡包封面"
-                android:textSize="16sp"
                 android:textColor="@color/titleText"
-                android:layout_weight="0.01"/>
+                android:textSize="16sp" />
 
 
             <ImageView
@@ -66,7 +70,7 @@
                 android:layout_height="50dp"
                 android:layout_gravity="center_vertical"
                 android:layout_marginLeft="20dp"
-                android:layout_marginRight="25dp"
+                android:layout_marginRight="26dp"
                 android:layout_weight="2" />
 
 
@@ -75,98 +79,113 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="4.25"
-                android:gravity="center"
                 android:background="@color/colorBackground"
-                android:hint="选择卡包封面"/>
+                android:gravity="center"
+                android:hint="选择卡包封面" />
         </LinearLayout>
 
         <View
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:background="#dcdcdc"/>
+            android:background="#dcdcdc" />
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="60dp"
-            android:padding="15dp"
             android:background="@color/white"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:padding="15dp">
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
+                android:layout_weight="1"
                 android:text="卡包分类"
-                android:textSize="16sp"
                 android:textColor="@color/titleText"
-                android:layout_weight="1"/>
+                android:textSize="16sp" />
+
             <Button
                 android:id="@+id/btn_bag_choosestyle"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="0.6"
-                android:gravity="center"
                 android:background="@color/colorBackground"
-                android:hint="选择卡包类型"/>
+                android:gravity="center"
+                android:hint="选择卡包类型" />
 
         </LinearLayout>
 
         <View
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:background="#dcdcdc"/>
+            android:background="#dcdcdc" />
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="60dp"
-            android:padding="15dp"
             android:background="@color/white"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:padding="15dp">
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
+                android:layout_weight="1"
                 android:text="记忆曲线"
-                android:textSize="16sp"
                 android:textColor="@color/titleText"
-                android:layout_weight="1"/>
+                android:textSize="16sp" />
+
             <Button
                 android:id="@+id/btn_bag_chooseMenory"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="0.6"
-                android:gravity="center"
                 android:background="@color/colorBackground"
-                android:hint="选择记忆曲线"/>
+                android:gravity="center"
+                android:hint="选择记忆曲线" />
 
         </LinearLayout>
+
         <View
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:background="#dcdcdc"/>
+            android:background="#dcdcdc" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="60dp"
-            android:padding="15dp"
             android:background="@color/white"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:padding="15dp">
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
+                android:layout_weight="0.7"
                 android:text="加入复习计划"
-                android:textSize="16sp"
                 android:textColor="@color/titleText"
-                android:layout_weight="0.7"/>
-            
+                android:textSize="16sp" />
+
             <Switch
                 android:id="@+id/sc_ifReview"
                 android:layout_width="50dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_weight="1"/>
+                android:layout_weight="1" />
+
+
 
         </LinearLayout>
+        <ImageView
+            android:id="@+id/iv_text"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
 
     </LinearLayout>
+
 
 
 
