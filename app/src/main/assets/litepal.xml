@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<litepal>
+    <dbname value = "CardReview"></dbname>
+    <varsion value = "1"></varsion>
+    <list>
+        <!--token-->
+        <mapping class = "com.example.hasee.cardreviewv3.db.Token"></mapping>
+
+    </list>
+</litepal>

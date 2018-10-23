@@ -12,6 +12,7 @@ import android.widget.Scroller;
 import android.widget.TextView;
 
 import com.example.hasee.cardreviewv3.R;
+import com.example.hasee.cardreviewv3.db.Token;
 
 import java.io.IOException;
 
@@ -46,6 +47,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
     public String phone;
     public String password;
+
+    static String token;//登陆完了的Token
 
 
 
@@ -116,6 +119,11 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 Call call = client.newCall(request);
                 try {
                     Response response = call.execute();
+                    token = response.headers().get("Token");
+                    Token tokensave = new Token();
+                    tokensave.setToken(token);
+                    tokensave.save();
+                    Log.d("233","token" + token);
                     Log.d("233", "1 "+response.body().string());
                 } catch (IOException e) {
                     e.printStackTrace();

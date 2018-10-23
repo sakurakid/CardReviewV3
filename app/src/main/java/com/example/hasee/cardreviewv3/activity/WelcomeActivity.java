@@ -9,6 +9,8 @@ import android.support.v7.app.AppCompatActivity;
 
 import com.example.hasee.cardreviewv3.R;
 
+import org.litepal.LitePal;
+
 /**
  * 就是一个欢迎界面 每次打开app都要展示的啦啦啦
  */
@@ -38,6 +40,7 @@ public class WelcomeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_welcome);
         init();
+        LitePal.getDatabase();//创建数据库
     }
 
     private void init(){

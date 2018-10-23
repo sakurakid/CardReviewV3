@@ -10,6 +10,8 @@ import android.widget.EditText;
 
 import com.example.hasee.cardreviewv3.R;
 
+import org.json.JSONObject;
+
 import java.io.IOException;
 import java.util.List;
 
@@ -145,6 +147,7 @@ public class Register extends AppCompatActivity implements View.OnClickListener 
                         .add("password", password_older)
                         .add("passwordConfirm", password_new)
                         .build();
+
                 Request request = new Request.Builder()
                         .url("http://diamond.creatshare.com/user/register")
                         .post(requestBody)
@@ -163,24 +166,24 @@ public class Register extends AppCompatActivity implements View.OnClickListener 
         }).start();
     }
 
-//    /**
-//     * 解析返回返回值
-//     *
-//     * @param jsonData
-//     */
-//    public String parseJSON(String jsonData) {
-//        String codes = null;
-//        try {
-//            JSONObject jsonObject = new JSONObject(jsonData);
-//            codes = jsonObject.getString("code");
-//
-//
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        }
-//.
-//        return codes;
-//    }
+    /**
+     * 解析返回返回值
+     *
+     * @param jsonData
+     */
+    public String parseJSON(String jsonData) {
+        String codes = null;
+        try {
+            JSONObject jsonObject = new JSONObject(jsonData);
+            codes = jsonObject.getString("code");
+
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return codes;
+    }
 
 
 

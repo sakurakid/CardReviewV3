@@ -4,7 +4,6 @@ import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -23,11 +22,16 @@ import com.example.hasee.cardreviewv3.R;
 import com.example.hasee.cardreviewv3.ReviewFragmentActivitise.DialogchoosebagActivity;
 import com.example.hasee.cardreviewv3.UtilsClass.MyGlideEngine;
 import com.example.hasee.cardreviewv3.UtilsClass.UriToPathUtil;
+import com.example.hasee.cardreviewv3.db.Token;
 import com.example.hasee.cardreviewv3.viewBase.MyDialog;
 import com.zhihu.matisse.Matisse;
 import com.zhihu.matisse.MimeType;
 import com.zhihu.matisse.engine.impl.GlideEngine;
 import com.zhihu.matisse.internal.entity.CaptureStrategy;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+import org.litepal.crud.DataSupport;
 
 import java.io.File;
 import java.io.IOException;
@@ -65,6 +69,7 @@ public class AddBag extends AppCompatActivity implements View.OnClickListener{
     private File f; //图片文件
     private Uri imageURL;
     private String path;
+    private String URL;//返回的图片的封面
 
 
 
@@ -73,6 +78,8 @@ public class AddBag extends AppCompatActivity implements View.OnClickListener{
     private boolean FLAG_PERMISSION = false;
 
     private List<String> list;
+
+    private String token;//上传图片的token
 
 
 
@@ -84,7 +91,11 @@ public class AddBag extends AppCompatActivity implements View.OnClickListener{
         //6.0以后需要获取权限
        // obtainPermission();
 
-    }
+
+
+
+
+}
 
     /**
      * 绑定
@@ -111,7 +122,9 @@ public class AddBag extends AppCompatActivity implements View.OnClickListener{
                 Log.d("233","啦啦啦呜呜呜");
                 //getimagereturn();
                 updata();
+
             }
+
         });
         choosebagcover.setOnClickListener(this);
         choosecardkind.setOnClickListener(this);
@@ -196,11 +209,10 @@ public class AddBag extends AppCompatActivity implements View.OnClickListener{
             path = UriToPathUtil.getRealFilePath(getBaseContext(),imageURL);
            // path = "file://" + path;
 
-            //测试
-            Log.d("233","测试path");
-            Bitmap bitmap = BitmapFactory.decodeFile(path);
+
+           // Bitmap bitmap = BitmapFactory.decodeFile(path);
             //f = convertBitmapToFile(bitmap);
-            text.setImageBitmap(bitmap);
+           // text.setImageBitmap(bitmap);
 
         }
         switch (requestCode){
@@ -268,6 +280,15 @@ public class AddBag extends AppCompatActivity implements View.OnClickListener{
                 });
 
             }
+    /**
+     * 获取返回的Token
+     */
+    public static String getToken(){
+        Token token = DataSupport.findFirst(Token.class);
+        String tokennew = token.getToken();
+        return tokennew;
+
+    }
 
     /***
      * Retrofit上传图片
@@ -288,7 +309,14 @@ public class AddBag extends AppCompatActivity implements View.OnClickListener{
                     @Override
                     public void onResponse(retrofit2.Call<ResponseBody> call, retrofit2.Response<ResponseBody> response) {
                      try {
+                         URL = returnURL(response.body().string());
+
+                         Log.d("233","URL   "+URL);
+
+
                          Log.d("233",response.body().string());
+
+
                      }catch (Exception e){
                          e.printStackTrace();
                      }
@@ -300,13 +328,40 @@ public class AddBag extends AppCompatActivity implements View.OnClickListener{
 
                     }
                 });
+
     }
 
+    /**
+     * 解析json数据
+     * @param s
+     * @return
+     */
+    public String returnURL(String s){
+        String returnURL = "返回失败";
+        if (s!=null){
+            try {
+                JSONObject jsonObject = new JSONObject(s);
+                String data = jsonObject.getString("data");
+                JSONObject jsonObject1 = new JSONObject(data);
+                String ss = jsonObject1.getString("imageUrl");
 
 
 
+                return ss;
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
 
+        }
 
+        return returnURL;
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+    }
 }
 
 
