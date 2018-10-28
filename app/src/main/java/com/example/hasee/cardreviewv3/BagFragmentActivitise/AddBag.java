@@ -2,6 +2,7 @@ package com.example.hasee.cardreviewv3.BagFragmentActivitise;
 
 import android.Manifest;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.net.Uri;
@@ -14,6 +15,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Toast;
@@ -22,7 +24,6 @@ import com.example.hasee.cardreviewv3.R;
 import com.example.hasee.cardreviewv3.ReviewFragmentActivitise.DialogchoosebagActivity;
 import com.example.hasee.cardreviewv3.UtilsClass.MyGlideEngine;
 import com.example.hasee.cardreviewv3.UtilsClass.UriToPathUtil;
-import com.example.hasee.cardreviewv3.db.Token;
 import com.example.hasee.cardreviewv3.viewBase.MyDialog;
 import com.zhihu.matisse.Matisse;
 import com.zhihu.matisse.MimeType;
@@ -31,7 +32,6 @@ import com.zhihu.matisse.internal.entity.CaptureStrategy;
 
 import org.json.JSONException;
 import org.json.JSONObject;
-import org.litepal.crud.DataSupport;
 
 import java.io.File;
 import java.io.IOException;
@@ -40,6 +40,8 @@ import java.util.concurrent.TimeUnit;
 
 import okhttp3.Call;
 import okhttp3.Callback;
+import okhttp3.FormBody;
+import okhttp3.Headers;
 import okhttp3.MediaType;
 import okhttp3.MultipartBody;
 import okhttp3.OkHttpClient;
@@ -54,6 +56,7 @@ import retrofit2.Retrofit;
  */
 public class AddBag extends AppCompatActivity implements View.OnClickListener{
     private static final int REQUEST_CODE_CHOOSE = 23;
+    public EditText bagdescription;//卡包的描述
     private ImageView back;//返回的按钮
     private ImageView ok;//完成
     private View choose;
@@ -70,6 +73,8 @@ public class AddBag extends AppCompatActivity implements View.OnClickListener{
     private Uri imageURL;
     private String path;
     private String URL;//返回的图片的封面
+
+    private String Bagname;
 
 
 
@@ -88,8 +93,8 @@ public class AddBag extends AppCompatActivity implements View.OnClickListener{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_bag);
         init();
-        //6.0以后需要获取权限
-       // obtainPermission();
+        SharedPreferences preferences = getSharedPreferences("Token",MODE_PRIVATE);
+        token = preferences.getString("Token","");
 
 
 
@@ -109,6 +114,7 @@ public class AddBag extends AppCompatActivity implements View.OnClickListener{
         ok = (ImageView)findViewById(R.id.iv_save);
         text = (ImageView)findViewById(R.id.iv_text);
         choosecardkind = (Button)findViewById(R.id.btn_bag_choosestyle);
+        bagdescription = (EditText)findViewById(R.id.et_bah_name);
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -121,7 +127,9 @@ public class AddBag extends AppCompatActivity implements View.OnClickListener{
             public void onClick(View v) {
                 Log.d("233","啦啦啦呜呜呜");
                 //getimagereturn();
-                updata();
+               updata();
+
+                //upAddBag();//上传卡包
 
             }
 
@@ -284,9 +292,7 @@ public class AddBag extends AppCompatActivity implements View.OnClickListener{
      * 获取返回的Token
      */
     public static String getToken(){
-        Token token = DataSupport.findFirst(Token.class);
-        String tokennew = token.getToken();
-        return tokennew;
+        return null;
 
     }
 
@@ -315,6 +321,8 @@ public class AddBag extends AppCompatActivity implements View.OnClickListener{
 
 
                          Log.d("233",response.body().string());
+
+                         upAddBag();
 
 
                      }catch (Exception e){
@@ -362,6 +370,50 @@ public class AddBag extends AppCompatActivity implements View.OnClickListener{
         super.onResume();
 
     }
+    /**
+     * 上传卡包
+     */
+    public void upAddBag(){
+        Log.d("233","上传图片");
+        Log.d("233","上传图片1");
+        Bagname = bagdescription.getText().toString();
+        Log.d("233","description"+Bagname);
+
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                OkHttpClient client = new OkHttpClient();
+
+                RequestBody requestBody = new FormBody.Builder()
+                        .add("description",Bagname)
+                        .add("cover",URL)
+                        .add("type","1")
+                        .build();
+
+                Request request = new Request.Builder()
+                        .url("http://diamond.creatshare.com/package/add")
+                        .post(requestBody)
+                        .addHeader("Authorization",token)
+                        .build();
+
+                Call call = client.newCall(request);
+                try {
+                    Response response = call.execute();
+                    Log.d("233",response.body().string());
+                    Headers requestHeaders= response.networkResponse().request().headers();
+                    //Log.d("233",requestHeaders.toString());
+
+                }catch (IOException e){
+                    e.printStackTrace();
+                }
+
+
+            }
+        }).start();
+
+
+    }
+
 }
 
 

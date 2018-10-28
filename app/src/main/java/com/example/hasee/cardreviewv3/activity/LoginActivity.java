@@ -1,6 +1,7 @@
 package com.example.hasee.cardreviewv3.activity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -12,7 +13,6 @@ import android.widget.Scroller;
 import android.widget.TextView;
 
 import com.example.hasee.cardreviewv3.R;
-import com.example.hasee.cardreviewv3.db.Token;
 
 import java.io.IOException;
 
@@ -119,10 +119,14 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 Call call = client.newCall(request);
                 try {
                     Response response = call.execute();
-                    token = response.headers().get("Token");
-                    Token tokensave = new Token();
-                    tokensave.setToken(token);
-                    tokensave.save();
+                    token = response.headers().get("Authorization");
+                    //Token tokensave = new Token();
+                    //存储Token
+                    SharedPreferences.Editor editor = getSharedPreferences("Token",MODE_PRIVATE).edit();
+                    editor.putString("Token",token);
+                    editor.apply();
+//                    tokensave.setToken(token);
+//                    tokensave.save();
                     Log.d("233","token" + token);
                     Log.d("233", "1 "+response.body().string());
                 } catch (IOException e) {
