@@ -25,6 +25,11 @@ public class CardPackage {
     //卡包的updatedAt
     private int updatedAt;
 
+    public CardPackage(String description,String cover){
+        this.cover = cover;
+        this.description = description;
+    }
+
     public int getCreatedAt() {
         return createdAt;
     }
