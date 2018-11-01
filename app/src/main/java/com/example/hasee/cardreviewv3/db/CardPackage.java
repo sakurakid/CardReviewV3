@@ -4,20 +4,23 @@ package com.example.hasee.cardreviewv3.db;
  * 卡包的实体类
  */
 public class CardPackage {
-    //卡包的描述
-    private String description;
-
-    //卡包的封面url
-    private String cover;
-
-    //卡包的类型
-    private int type;
-
     //卡包的id
     private int id;
 
     //卡包的userId
     private int userId;
+
+    //卡包的描述
+    private String name;
+
+    //卡包的封面url
+    private String cover;
+
+    //卡包的卡片数目
+    private String cardNum;
+
+    //卡包的类型
+    private int type;
 
     //卡包的createdAt
     private int createdAt;
@@ -25,69 +28,78 @@ public class CardPackage {
     //卡包的updatedAt
     private int updatedAt;
 
-    public CardPackage(String description,String cover){
+    public CardPackage(String name,String cover){
         this.cover = cover;
-        this.description = description;
+        this.name = name;
     }
 
-    public int getCreatedAt() {
-        return createdAt;
+    public String getCardNum() {
+        return cardNum;
     }
 
-    public int getId() {
-        return id;
-    }
-
-    public int getType() {
-        return type;
-    }
-
-    public int getUpdatedAt() {
-        return updatedAt;
-    }
-
-    public int getUserId() {
-        return userId;
+    public String getName() {
+        return name;
     }
 
     public String getCover() {
         return cover;
     }
 
-    public String getDescription() {
-        return description;
+    public int getUserId() {
+        return userId;
     }
 
-    public void setType(int type) {
-        this.type = type;
+    public int getUpdatedAt() {
+        return updatedAt;
     }
 
-    public void setCover(String cover) {
-        this.cover = cover;
+    public int getType() {
+        return type;
     }
 
-    public void setCreatedAt(int createdAt) {
-        this.createdAt = createdAt;
+    public int getId() {
+        return id;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public int getCreatedAt() {
+        return createdAt;
     }
 
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public void setUpdatedAt(int updatedAt) {
-        this.updatedAt = updatedAt;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public void setUserId(int userId) {
         this.userId = userId;
     }
 
+    public void setUpdatedAt(int updatedAt) {
+        this.updatedAt = updatedAt;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public void setCreatedAt(int createdAt) {
+        this.createdAt = createdAt;
+    }
+
+    public void setCover(String cover) {
+        this.cover = cover;
+    }
+
+    public void setType(int type) {
+        this.type = type;
+    }
+
+    public void setCardNum(String cardNum) {
+        this.cardNum = cardNum;
+    }
+
     @Override
     public String toString() {
         return super.toString();
     }
+
 }

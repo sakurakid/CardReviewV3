@@ -49,7 +49,7 @@ public class CardPackageAdapter extends RecyclerView.Adapter <CardPackageAdapter
     @Override
     public void onBindViewHolder(CardPackageAdapter.ViewHolder holder, int position) {
         CardPackage cardPackage = mCardPackageList.get(position);
-        holder.cardPackageName.setText(cardPackage.getDescription());
+        holder.cardPackageName.setText(cardPackage.getName());
         Glide.with(mContext)
                 .load(cardPackage.getCover())
                 .into(holder.cardPackageCore);
